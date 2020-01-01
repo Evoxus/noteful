@@ -11,7 +11,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav className='sidebar'></nav>
+        <nav className='sidebar'>
+          
+        </nav>
         <header>
           <Link to='/'>Noteful</Link>
         </header>
