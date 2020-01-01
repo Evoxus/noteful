@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import './App.css';
+import Sidebar from './Sidebar/Sidebar';
+import Header from './Header/Header';
 
 class App extends Component {
   constructor(props) {
@@ -11,12 +13,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav className='sidebar'>
-          
-        </nav>
-        <header>
-          <Link to='/'>Noteful</Link>
-        </header>
+        <Sidebar />
+        <Header />
         <main>
           
         </main>
