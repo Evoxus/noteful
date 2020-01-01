@@ -1,21 +1,26 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header>
-        <Link to='/'>Noteful</Link>
-      </header>
-      <main>
-        <Route
-          path='/'
-          component={null}
-        />
-      </main>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = props.store;
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <nav className='sidebar'></nav>
+        <header>
+          <Link to='/'>Noteful</Link>
+        </header>
+        <main>
+          
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
