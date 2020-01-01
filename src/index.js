@@ -7,6 +7,6 @@ import App from './App';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App store={STORE}/>
+    <App folders={STORE.folders} notes={STORE.notes} />
   </BrowserRouter>, 
   document.getElementById('root'));
