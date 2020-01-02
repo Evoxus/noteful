@@ -11,7 +11,7 @@ export default function Note(props) {
         <Link to={`/note/${props.id}`} >{props.name}</Link>
       </h3>
       <p><span className='Date'>
-        { format(new Date(props.modified), 'Do MMM yyyy') }
+        { format(parseISO(props.modified), 'do MMM yyyy') }
       </span></p>
       <DeleteNote />
     </div>
