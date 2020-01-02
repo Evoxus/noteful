@@ -19,9 +19,7 @@ class App extends Component {
     notes.find(note => note.id === noteId)
 
   getNotesForFolder = (notes = [], folderId) => (
-    (!folderId)
-      ? notes
-      : notes.filter(note => note.folderId === folderId)
+    (!folderId) ? notes : notes.filter(note => note.folderId === folderId)
   )
 
   render() {
