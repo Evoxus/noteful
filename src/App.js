@@ -15,7 +15,14 @@ class App extends Component {
     }
   }
 
-  findNote = 
+  findNote = (notes = [], noteId) =>
+    notes.find(note => note.id === noteId)
+
+  getNotesForFolder = (notes = [], folderId) => (
+    (!folderId)
+      ? notes
+      : notes.filter(note => note.folderId === folderId)
+  )
 
   render() {
     const { notes, folders } = this.state;
@@ -24,13 +31,25 @@ class App extends Component {
         <Sidebar />
         <Header />
         <main>
-        <Switch>
-          <Route path="/note/:noteId" render={routeProps => {
-            const { noteId } = routeProps.match.params;
-            const note = findNote(notes, noteId);
-            return <NoteDetail {...routeProps} note={note} />;
-          }}/>
-        </Switch>
+          <Switch>
+            {['/', '/folder/:folderId'].map((path, idx) => (
+              <Route exact path={path} key={idx} render={routeProps => {
+                const { folderId } = routeProps.match.params;
+                const notesMatch = this.getNotesForFolder(
+                  notes,
+                  folderId
+                );
+                return (
+                  <NoteList {...routeProps} notes={notesMatch} />
+                );
+              }} />
+            ))}
+            <Route path="/note/:noteId" render={routeProps => {
+              const { noteId } = routeProps.match.params;
+              const note = this.findNote(notes, noteId);
+              return <NoteDetail {...routeProps} note={note} />;
+            }} />
+          </Switch>
         </main>
       </div>
     );
