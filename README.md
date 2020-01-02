@@ -1,3 +1,5 @@
+Made by Fernando Gaol Filho and Michael Ploughman
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
