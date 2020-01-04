@@ -5,6 +5,7 @@ import Sidebar from './Sidebar/Sidebar';
 import Header from './Header/Header';
 import NoteList from './NoteList/NoteList';
 import NoteDetail from './NoteDetail/NoteDetail';
+import NoteContext from './NoteContext';
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class App extends Component {
         'content-type': 'application/json'
       },
     }).then(res => {
-      if(res.ok) {
+      if (res.ok) {
         return res.json()
       } else {
         throw new Error(res.statusText)
@@ -40,7 +41,7 @@ class App extends Component {
         'content-type': 'application/json'
       },
     }).then(res => {
-      if(res.ok) {
+      if (res.ok) {
         return res.json()
       } else {
         throw new Error(res.statusText)
@@ -62,38 +63,26 @@ class App extends Component {
   )
 
   render() {
-    const { notes, folders } = this.state;
+    const ContextValue = {
+      folders: this.state.folders,
+      notes: this.state.notes,
+      getNotesForFolder: this.getNotesForFolder,
+      findNote: this.findNote
+    }
     return (
       <div className="App">
-        {['/', '/folder/:folderId'].map((path, idx) => (
-          <Route exact path={path} key={idx} render={routeProps => {
-            return (
-              <Sidebar {...routeProps} folders={folders} />
-            );
-          }} />
-        ))}
-        <Header />
-        <main className='Main'>
-          <Switch>
+        <NoteContext.Provider value={ContextValue}>
+          { ['/', '/folder/:folderId'].map((path, idx) => (
+            <Route exact path={path} key={idx} component={Sidebar} />
+          ))}
+          <Header />
+          <main className='Main'>
             {['/', '/folder/:folderId'].map((path, idx) => (
-              <Route exact path={path} key={idx} render={routeProps => {
-                const { folderId } = routeProps.match.params;
-                const notesMatch = this.getNotesForFolder(
-                  notes,
-                  folderId
-                );
-                return (
-                  <NoteList {...routeProps} notes={notesMatch} />
-                );
-              }} />
+              <Route exact path={path} key={idx} component={NoteList} />
             ))}
-            <Route path="/note/:noteId" render={routeProps => {
-              const { noteId } = routeProps.match.params;
-              const note = this.findNote(notes, noteId);
-              return <NoteDetail {...routeProps} note={note} />;
-            }} />
-          </Switch>
-        </main>
+            <Route path="/note/:noteId" component={NoteDetail} />
+          </main>
+        </NoteContext.Provider>
       </div>
     );
   }
