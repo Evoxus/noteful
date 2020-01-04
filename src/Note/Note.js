@@ -7,13 +7,16 @@ import './Note.css';
 export default function Note(props) {
   return (
     <div className='Note'>
-      <h3>
+      <h4>
         <Link to={`/note/${props.id}`} >{props.name}</Link>
-      </h3>
-      <p><span className='Date'>
-        { format(parseISO(props.modified), 'do MMM yyyy') }
-      </span></p>
-      <DeleteNote />
+      </h4>
+      <p className='flexContainer'>
+        <span className='Date'>
+          { format(parseISO(props.modified), 'do MMM yyyy') }
+        </span>
+        <DeleteNote />
+      </p>
+      
     </div>
   )
 }

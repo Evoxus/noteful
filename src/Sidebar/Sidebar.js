@@ -1,10 +1,18 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import Folder from '../Folder/Folder';
+import './Sidebar.css';
 
 export default function Sidebar(props) {
+  const folders = props.folders.map(folder => (
+    <li>
+      <Folder key={folder.id} folder={folder} />
+    </li>
+  ))
   return (
-    <nav className='sidebar'>
-      Sidebar
+    <nav className='Sidebar'>
+      <ul>
+        {folders}
+      </ul>
     </nav>
   )
 }

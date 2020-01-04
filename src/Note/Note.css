@@ -1,6 +1,16 @@
 .Note {
   border: 1px solid black;
+  height: 70px;
   width: 300px;
   margin: 5px;
   padding: 3px;
+}
+
+.Note h4 {
+  margin-top: 5px;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
 }

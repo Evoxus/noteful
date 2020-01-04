@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Sidebar from './Sidebar/Sidebar';
 import Header from './Header/Header';
@@ -10,9 +10,48 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      folders: this.props.folders,
-      notes: this.props.notes
+      folders: [],
+      notes: []
     }
+  }
+
+  componentWillMount() {
+    fetch('http://localhost:9090/folders', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      },
+    }).then(res => {
+      if(res.ok) {
+        return res.json()
+      } else {
+        throw new Error(res.statusText)
+      }
+    }).then(resJson => {
+      this.setState({
+        folders: resJson
+      })
+    }).catch(err => (
+      console.log(err)
+    ))
+    fetch('http://localhost:9090/notes', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      },
+    }).then(res => {
+      if(res.ok) {
+        return res.json()
+      } else {
+        throw new Error(res.statusText)
+      }
+    }).then(resJson => {
+      this.setState({
+        notes: resJson
+      })
+    }).catch(err => (
+      console.log(err)
+    ))
   }
 
   findNote = (notes = [], noteId) =>
@@ -26,9 +65,15 @@ class App extends Component {
     const { notes, folders } = this.state;
     return (
       <div className="App">
-        <Sidebar />
+        {['/', '/folder/:folderId'].map((path, idx) => (
+          <Route exact path={path} key={idx} render={routeProps => {
+            return (
+              <Sidebar {...routeProps} folders={folders} />
+            );
+          }} />
+        ))}
         <Header />
-        <main>
+        <main className='Main'>
           <Switch>
             {['/', '/folder/:folderId'].map((path, idx) => (
               <Route exact path={path} key={idx} render={routeProps => {
