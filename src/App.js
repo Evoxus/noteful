@@ -17,42 +17,31 @@ class App extends Component {
   }
 
   componentWillMount() {
-    fetch('http://localhost:9090/folders', {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json'
-      },
-    }).then(res => {
-      if (res.ok) {
-        return res.json()
-      } else {
-        throw new Error(res.statusText)
-      }
-    }).then(resJson => {
-      this.setState({
-        folders: resJson
+    Promise.all([
+      fetch('http://localhost:9090/folders', {
+        method: 'GET',
+        headers: {
+          'content-type': 'application/json'
+        },
+      }),
+      fetch('http://localhost:9090/notes', {
+        method: 'GET',
+        headers: {
+          'content-type': 'application/json'
+        },
       })
-    }).catch(err => (
-      console.log(err)
-    ))
-    fetch('http://localhost:9090/notes', {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json'
-      },
-    }).then(res => {
-      if (res.ok) {
-        return res.json()
-      } else {
-        throw new Error(res.statusText)
-      }
-    }).then(resJson => {
-      this.setState({
-        notes: resJson
+    ]).then(([notesRes, foldersRes]) => {
+      if (!notesRes.ok)
+        return notesRes.json().then(e => Promise.reject(e));
+      if (!foldersRes.ok)
+        return foldersRes.json().then(e => Promise.reject(e));
+      return Promise.all([notesRes.json(), foldersRes.json()]);
+    }).then(([notes, folders]) => {
+        this.setState({ notes, folders });
       })
-    }).catch(err => (
-      console.log(err)
-    ))
+      .catch(error => {
+        console.error({ error });
+      });
   }
 
   findNote = (notes = [], noteId) =>
