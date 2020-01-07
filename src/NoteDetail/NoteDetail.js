@@ -1,11 +1,10 @@
 import React from 'react';
 import Note from '../Note/Note';
 import './NoteDetail.css';
-import NoteContext from '../NoteContext';
+
 
 export default function NoteDetail(props) {
   return (
-    // <NoteContext.Consumer>
       <section className='NoteDetail'>
         <Note
           id={props.note.id}
@@ -18,7 +17,6 @@ export default function NoteDetail(props) {
           )}
         </div>
       </section>
-    // </NoteContext.Consumer>
   )
 }
 
