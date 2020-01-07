@@ -1,34 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Note from '../Note/Note';
 import './NoteList.css';
 import NoteContext from '../NoteContext';
 import { getNotesForFolder } from '../helperFunctions';
 
-export default function NoteList(props) {
-  const { folderId } = props.match.params;
-  return (
-    <NoteContext.Consumer>
-      {(value) => {
-        const notes = getNotesForFolder(value.notes, folderId).map(note =>
-          <li key={note.id}>
-            <Note modified={note.modified}
-              name={note.name} id={note.id}
-            />
-          </li>
-        );
-        return (
-          <section className='NoteList'>
-            <ul>
-              {notes}
-            </ul>
-          </section>
-        )
-      }}
-    </NoteContext.Consumer>
+export default class NoteList extends Component {
+  static defaultProps = {
+    notes: [],
+    match: { params: {} }
+  }
 
-  )
-}
+  static contextType = NoteContext;
 
-NoteList.defaultProps = {
-  notes: []
+  handleDeleteNote = noteId => {
+    this.props.history.push(`/`)
+  }
+
+  render() {
+    const { folderId } = this.props.match.params;
+    const notes = getNotesForFolder(this.context.notes, folderId).map(note =>
+      <li key={note.id}>
+        <Note modified={note.modified}
+          name={note.name} id={note.id}
+          onDeleteNote={this.handleDeleteNote}
+        />
+      </li>
+    );
+    return (
+      <section className='NoteList'>
+        <ul>
+          {notes}
+        </ul>
+      </section>
+    )
+  }
 }

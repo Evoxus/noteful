@@ -1,22 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
-import DeleteNote from '../DeleteNote/DeleteNote';
+import NoteContext from '../NoteContext';
 import './Note.css';
 
-export default function Note(props) {
-  return (
-    <div className='Note'>
-      <h4>
-        <Link to={`/note/${props.id}`} >{props.name}</Link>
-      </h4>
-      <p className='flexContainer'>
-        <span className='Date'>
-          { format(parseISO(props.modified), 'do MMM yyyy') }
-        </span>
-        <DeleteNote />
-      </p>
-      
-    </div>
-  )
+export default class Note extends Component {
+  static defaultProps ={
+    onDeleteNote: () => {},
+  }
+
+  static contextType = NoteContext;
+
+  handleClickDelete = e => {
+    e.preventDefault()
+    const noteId = this.props.id
+    fetch(`http://localhost:9090/notes/${noteId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
+      },
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(() => {
+        this.context.deleteNote(noteId)
+        // allow parent to perform extra behaviour
+        this.props.onDeleteNote(noteId)
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+  }
+
+  render() {
+    return (
+      <div className='Note'>
+        <h4>
+          <Link to={`/note/${this.props.id}`} >{this.props.name}</Link>
+        </h4>
+        <p className='flexContainer'>
+          <span className='Date'>
+            { format(parseISO(this.props.modified), 'do MMM yyyy') }
+          </span>
+          <button className='DeleteNote' type='button' onClick={this.handleClickDelete}>DeleteNote</button>
+        </p>
+      </div>
+    )
+  }
 }

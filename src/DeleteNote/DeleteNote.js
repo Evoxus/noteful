@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import NoteContext from '../NoteContext';
 import './DeleteNote.css';
 
-export default function DeleteNote(props) {
-  return(
-    <button className='DeleteNote'>Delete Note</button>
-  )
+export default class DeleteNote extends Component {
+
+  
+
+  render() {
+    return(
+      <button >Delete Note</button>
+    )
+  }
 }

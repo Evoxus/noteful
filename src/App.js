@@ -37,22 +37,29 @@ class App extends Component {
         return notesRes.json().then(e => Promise.reject(e));
       return Promise.all([foldersRes.json(), notesRes.json()]);
     }).then(([folders, notes]) => {
-        this.setState({ folders, notes });
-      })
+      this.setState({ folders, notes });
+    })
       .catch(error => {
         console.error({ error });
       });
   }
 
+  handleDeleteNote = noteId => {
+    this.setState({
+      notes: this.state.notes.filter(note => note.id !== noteId)
+    });
+  };
+
   render() {
     const ContextValue = {
       folders: this.state.folders,
       notes: this.state.notes,
-    }
+      deleteNote: this.handleDeleteNote
+    };
     return (
       <div className="App">
         <NoteContext.Provider value={ContextValue}>
-          { ['/', '/folder/:folderId'].map((path, idx) => (
+          {['/', '/folder/:folderId'].map((path, idx) => (
             <Route exact path={path} key={idx} component={Sidebar} />
           ))}
           <Header />
