@@ -67,10 +67,7 @@ class App extends Component {
             {['/', '/folder/:folderId'].map((path, idx) => (
               <Route exact path={path} key={idx} render={routeProps => {
                 const { folderId } = routeProps.match.params;
-                const notesMatch = this.getNotesForFolder(
-                  notes,
-                  folderId
-                );
+                const notesMatch = this.getNotesForFolder(notes, folderId);
                 return (
                   <NoteList {...routeProps} notes={notesMatch} />
                 );
