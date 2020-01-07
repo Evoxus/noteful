@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Sidebar from './Sidebar/Sidebar';
 import Header from './Header/Header';
@@ -30,33 +30,24 @@ class App extends Component {
           'content-type': 'application/json'
         },
       })
-    ]).then(([notesRes, foldersRes]) => {
-      if (!notesRes.ok)
-        return notesRes.json().then(e => Promise.reject(e));
+    ]).then(([foldersRes, notesRes]) => {
       if (!foldersRes.ok)
         return foldersRes.json().then(e => Promise.reject(e));
-      return Promise.all([notesRes.json(), foldersRes.json()]);
-    }).then(([notes, folders]) => {
-        this.setState({ notes, folders });
+      if (!notesRes.ok)
+        return notesRes.json().then(e => Promise.reject(e));
+      return Promise.all([foldersRes.json(), notesRes.json()]);
+    }).then(([folders, notes]) => {
+        this.setState({ folders, notes });
       })
       .catch(error => {
         console.error({ error });
       });
   }
 
-  findNote = (notes = [], noteId) =>
-    notes.find(note => note.id === noteId)
-
-  getNotesForFolder = (notes = [], folderId) => (
-    (!folderId) ? notes : notes.filter(note => note.folderId === folderId)
-  )
-
   render() {
     const ContextValue = {
       folders: this.state.folders,
       notes: this.state.notes,
-      getNotesForFolder: this.getNotesForFolder,
-      findNote: this.findNote
     }
     return (
       <div className="App">

@@ -2,21 +2,23 @@ import React from 'react';
 import Note from '../Note/Note';
 import './NoteDetail.css';
 import NoteContext from '../NoteContext';
+import { findNote } from '../helperFunctions';
 
 export default function NoteDetail(props) {
-  const noteId = this.props.match.params;
+  const noteId = props.match.params;
   return (
     <NoteContext.Consumer>
       {(value) => {
+        const note = findNote(value.notes, noteId)
         return (
           <section className='NoteDetail'>
             <Note
-              id={value.note.id}
-              name={value.note.name}
-              modified={value.note.modified}
+              id={note.id}
+              name={note.name}
+              modified={note.modified}
             />
             <div className='NoteContent'>
-              {value.note.content.split(/\n \r|\n/).map((content, idx) =>
+              {note.content.split(/\n \r|\n/).map((content, idx) =>
                 <p key={idx}>{content}</p>
               )}
             </div>

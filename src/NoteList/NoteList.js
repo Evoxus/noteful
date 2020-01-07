@@ -2,13 +2,15 @@ import React from 'react';
 import Note from '../Note/Note';
 import './NoteList.css';
 import NoteContext from '../NoteContext';
-
+import { getNotesForFolder } from '../helperFunctions';
 
 export default function NoteList(props) {
+  const folderId = props.match.params;
+  console.log(folderId);
   return (
     <NoteContext.Consumer>
       {(value) => {
-        const notes = value.notes.map(note =>
+        const notes = getNotesForFolder(value.notes, folderId).map(note =>
           <li key={note.id}>
             <Note modified={note.modified}
               name={note.name} id={note.id}
