@@ -5,7 +5,7 @@ import NoteContext from '../NoteContext';
 import { findNote } from '../helperFunctions';
 
 export default function NoteDetail(props) {
-  const noteId = props.match.params;
+  const { noteId } = props.match.params;
   return (
     <NoteContext.Consumer>
       {(value) => {
