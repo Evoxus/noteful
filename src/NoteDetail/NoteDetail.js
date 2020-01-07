@@ -4,6 +4,7 @@ import './NoteDetail.css';
 import NoteContext from '../NoteContext';
 
 export default function NoteDetail(props) {
+  const noteId = this.props.match.params;
   return (
     <NoteContext.Consumer>
       {(value) => {
