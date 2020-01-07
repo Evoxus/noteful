@@ -5,7 +5,7 @@ import NoteContext from '../NoteContext';
 
 export default function NoteDetail(props) {
   return (
-    <NoteContext.Consumer>
+    // <NoteContext.Consumer>
       <section className='NoteDetail'>
         <Note
           id={props.note.id}
@@ -18,7 +18,7 @@ export default function NoteDetail(props) {
           )}
         </div>
       </section>
-    </NoteContext.Consumer>
+    // </NoteContext.Consumer>
   )
 }
 

@@ -4,8 +4,8 @@ import './Sidebar.css';
 
 export default function Sidebar(props) {
   const folders = props.folders.map(folder => (
-    <li>
-      <Folder key={folder.id} folder={folder} />
+    <li key={folder.id}>
+      <Folder folder={folder} />
     </li>
   ))
   return (
