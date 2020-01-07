@@ -5,8 +5,7 @@ import NoteContext from '../NoteContext';
 import { getNotesForFolder } from '../helperFunctions';
 
 export default function NoteList(props) {
-  const folderId = props.match.params;
-  console.log(folderId);
+  const { folderId } = props.match.params;
   return (
     <NoteContext.Consumer>
       {(value) => {
