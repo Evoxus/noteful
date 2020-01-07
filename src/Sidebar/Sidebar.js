@@ -7,9 +7,9 @@ export default function Sidebar(props) {
   return (
     <NoteContext.Consumer>
       {(value) => {
-        const folders = value.folders.map(folder => (
-          <li>
-            <Folder key={folder.id} folder={folder} />
+        const folders = value.folders.map((folder, idx) => (
+          <li key={idx}>
+            <Folder folder={folder} />
           </li>
         ))
         return (

@@ -6,18 +6,23 @@ import NoteContext from '../NoteContext';
 export default function NoteDetail(props) {
   return (
     <NoteContext.Consumer>
-      <section className='NoteDetail'>
-        <Note
-          id={props.note.id}
-          name={props.note.name}
-          modified={props.note.modified}
-        />
-        <div className='NoteContent'>
-          {props.note.content.split(/\n \r|\n/).map((content, idx) =>
-            <p key={idx}>{content}</p>
-          )}
-        </div>
-      </section>
+      {(value) => {
+        return (
+          <section className='NoteDetail'>
+            <Note
+              id={value.note.id}
+              name={value.note.name}
+              modified={value.note.modified}
+            />
+            <div className='NoteContent'>
+              {value.note.content.split(/\n \r|\n/).map((content, idx) =>
+                <p key={idx}>{content}</p>
+              )}
+            </div>
+          </section>
+        )
+      }}
+
     </NoteContext.Consumer>
   )
 }
