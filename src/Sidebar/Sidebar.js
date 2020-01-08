@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Folder from '../Folder/Folder';
 import './Sidebar.css';
 import NoteContext from '../NoteContext';
-import AddFolder from '../AddFolder/AddFolder'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class Sidebar extends Component {
 
@@ -22,9 +21,8 @@ export default class Sidebar extends Component {
             <ul>
               {folders}
               <li key='AddFolder'>
-              <Link to='/AddFolder'>Add Folder</Link>
+                <Link to='/AddFolder'>Add Folder</Link>
               </li>
-              
             </ul>
           </nav>
         )

@@ -56,6 +56,12 @@ handleAddFolder = (folder) =>{
   })
 }
 
+  handleAddFolder = folder => {
+    this.setState({
+      folders: [...this.state.folders, folder]
+    })
+  }
+
   render() {
     const ContextValue = {
       folders: this.state.folders,
