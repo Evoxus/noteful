@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import NoteContext from '../NoteContext';
 
 export default class AddFolder extends Component{
     constructor(props){
@@ -10,7 +11,7 @@ export default class AddFolder extends Component{
      }
    }
 }
-
+static contextType = NoteContext;
 updateFolder(value){
     this.setState({
         name: {
@@ -21,15 +22,17 @@ updateFolder(value){
 }
 
 handleSubmit(e){
-    const inputName = this.state.name;
+    const inputName = this.state.name.value;
     e.preventDefault();
     fetch('http://localhost:9090/folders', {
         method: 'POST', body: JSON.stringify({name:inputName}),
         headers: {
           'content-type': 'application/json'
-        }
+        },
     });
 }
+
+
 
 validateNewFolder(){
     const folderName = this.state.name.value;
