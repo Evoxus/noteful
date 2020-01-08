@@ -6,6 +6,7 @@ import Header from './Header/Header';
 import NoteList from './NoteList/NoteList';
 import NoteDetail from './NoteDetail/NoteDetail';
 import NoteContext from './NoteContext';
+import AddFolder from './AddFolder/AddFolder';
 
 class App extends Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class App extends Component {
     return (
       <div className="App">
         <NoteContext.Provider value={ContextValue}>
-          {['/', '/folder/:folderId'].map((path, idx) => (
+          {['/', '/folder/:folderId','/AddFolder'].map((path, idx) => (
             <Route exact path={path} key={idx} component={Sidebar} />
           ))}
           <Header />
@@ -68,6 +69,7 @@ class App extends Component {
               <Route exact path={path} key={idx} component={NoteList} />
             ))}
             <Route path="/note/:noteId" component={NoteDetail} />
+            <Route path='/AddFolder' component={AddFolder}></Route>
           </main>
         </NoteContext.Provider>
       </div>
