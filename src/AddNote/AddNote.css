@@ -1,0 +1,8 @@
+label {
+  display: block;
+}
+
+.validationError {
+  color: red;
+  font-size: 0.75em;
+}

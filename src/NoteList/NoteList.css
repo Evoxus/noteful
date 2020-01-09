@@ -3,3 +3,11 @@
   padding-left: 0;
   margin-top: 0;
 }
+
+.addNoteButton {
+  text-align: center;
+  border: 1px solid black;
+  width: 300px;
+  margin: 5px;
+  padding: 10px 0;
+}
