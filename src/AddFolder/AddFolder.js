@@ -12,7 +12,9 @@ export default class AddFolder extends Component {
      }
    }
 }
+
 static contextType = NoteContext;
+
 updateFolder(value){
     this.setState({
       name: {
