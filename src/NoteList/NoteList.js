@@ -3,7 +3,7 @@ import Note from '../Note/Note';
 import './NoteList.css';
 import NoteContext from '../NoteContext';
 import { getNotesForFolder } from '../helperFunctions';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class NoteList extends Component {
   static defaultProps = {
@@ -31,8 +31,8 @@ export default class NoteList extends Component {
       <section className='NoteList'>
         <ul>
           {notes}
-          <li key='AddNote'>
-            <Link to='/AddNote' className='addNote'>Add Note</Link>
+          <li key='addNote' className='addNoteButton'>
+            <Link to='/AddNote'>Add Note</Link>
           </li>
         </ul>
       </section>

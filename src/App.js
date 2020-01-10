@@ -7,8 +7,7 @@ import NoteList from './NoteList/NoteList';
 import NoteDetail from './NoteDetail/NoteDetail';
 import NoteContext from './NoteContext';
 import AddFolder from './AddFolder/AddFolder';
-import AddNote from './AddNote/AddNote'
-import ErrorBoundary from '../ErrorBoundary';
+import AddNote from './AddNote/AddNote';
 
 class App extends Component {
   constructor(props) {
@@ -79,7 +78,7 @@ class App extends Component {
       <div className="App">
         <ErrorBoundary>
         <NoteContext.Provider value={ContextValue}>
-          {['/', '/folder/:folderId','/AddFolder'].map((path, idx) => (
+          {['/', '/folder/:folderId','/AddFolder', '/AddNote'].map((path, idx) => (
             <Route exact path={path} key={idx} component={Sidebar} />
           ))}
           <Header />
@@ -88,8 +87,8 @@ class App extends Component {
               <Route exact path={path} key={idx} component={NoteList} />
             ))}
             <Route path="/note/:noteId" component={NoteDetail} />
-            <Route path='/AddFolder' component={AddFolder}></Route>
-            <Route path='/AddNote' component={AddNote}></Route>
+            <Route path='/AddFolder' component={AddFolder} />
+            <Route path='/AddNote' component={AddNote} />
           </main>
         </NoteContext.Provider>
         </ErrorBoundary>

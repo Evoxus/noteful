@@ -4,12 +4,10 @@
   margin-top: 0;
 }
 
-.addNote{
+.addNoteButton {
+  text-align: center;
   border: 1px solid black;
-  margin-left: 4.5px;
-  list-style: none;
-  text-decoration: none;
-  color: black;
-  padding: 5px;
+  width: 300px;
+  margin: 5px;
+  padding: 10px 0;
 }
-

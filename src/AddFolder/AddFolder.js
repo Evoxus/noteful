@@ -28,10 +28,11 @@ handleSubmit(e){
     const inputName = this.state.name.value;
     e.preventDefault();
     fetch('http://localhost:9090/folders', {
-        method: 'POST', body: JSON.stringify({name:inputName}),
-        headers: {
-          'content-type': 'application/json'
-        },
+      method: 'POST', 
+      body: JSON.stringify({ name: inputName }),
+      headers: {
+        'content-type': 'application/json'
+      }
     })
     .then(res => res.json())
     .then(data => { this.context.addFolder(data) })

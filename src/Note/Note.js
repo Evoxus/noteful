@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
 import NoteContext from '../NoteContext';
+import PropType from 'prop-types';
 import './Note.css';
 
 export default class Note extends Component {
-  static defaultProps ={
+  static defaultProps = {
     onDeleteNote: () => {},
   }
 
@@ -26,9 +27,10 @@ export default class Note extends Component {
         return res.json()
       })
       .then(() => {
+        this.props.onDeleteNote(noteId)
         this.context.deleteNote(noteId)
         // allow parent to perform extra behaviour
-        this.props.onDeleteNote(noteId)
+        
       })
       .catch(error => {
         console.error({ error })
@@ -43,11 +45,17 @@ export default class Note extends Component {
         </h4>
         <p className='flexContainer'>
           <span className='Date'>
-            { format(parseISO(this.props.modified), 'do MMM yyyy') }
+            {this.props.modified && format(parseISO(this.props.modified), 'do MMM yyyy') }
           </span>
           <button className='DeleteNote' type='button' onClick={this.handleClickDelete}>DeleteNote</button>
         </p>
       </div>
     )
   }
+}
+
+Note.propType = {
+  name: PropType.string.isRequired,
+  modified: PropType.string.isRequired,
+  onDeleteNote: PropType.func.isRequired
 }
