@@ -14,6 +14,7 @@ export default class NoteList extends Component {
   static contextType = NoteContext;
 
   handleDeleteNote = noteId => {
+    console.log(this.props)
     this.props.history.push(`/`)
   }
 

@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Note from '../Note/Note';
 import './NoteDetail.css';
 import NoteContext from '../NoteContext';
 import { findNote } from '../helperFunctions';
 
-export default function NoteDetail(props) {
-  const { noteId } = props.match.params;
+export default class NoteDetail extends Component {
+  
+  handleDeleteNote = noteId => {
+    console.log(this.props)
+    this.props.history.push(`/`)
+  }
+
+  render() {
+
+  const { noteId } = this.props.match.params;
+  
   return (
     <NoteContext.Consumer>
       {(value) => {
@@ -16,6 +25,7 @@ export default function NoteDetail(props) {
               id={note.id}
               name={note.name}
               modified={note.modified}
+              onDeleteNote={this.handleDeleteNote}
             />
             <div className='NoteContent'>
               {note.content.split(/\n \r|\n/).map((content, idx) =>
@@ -25,9 +35,8 @@ export default function NoteDetail(props) {
           </section>
         )
       }}
-
     </NoteContext.Consumer>
-  )
+  )}
 }
 
 NoteDetail.defaultProps = {

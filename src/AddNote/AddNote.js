@@ -53,13 +53,9 @@ export default class AddNote extends Component {
     const folders = this.context.folders
     let result;
     for(let i = 0; i < folders.length; i++) {
-      console.log('Folder in forEach: ', folders)
-      console.log('Folder.name value: ', folders.name)
       if (folders[i].name === folderName) {
-        console.log(folders[i].name === folderName)
         result = folders[i].id
       }
-      console.log('Result: ', result)
       return result
     }
   }
