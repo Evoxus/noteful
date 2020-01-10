@@ -7,7 +7,6 @@ import { findNote } from '../helperFunctions';
 export default class NoteDetail extends Component {
   
   handleDeleteNote = noteId => {
-    console.log(this.props)
     this.props.history.push(`/`)
   }
 

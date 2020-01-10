@@ -79,20 +79,7 @@ export default class AddNote extends Component {
         this.context.addNote(data)
       })
     e.target.reset()
-    this.setState({
-      name: {
-        value: '',
-        touched: false
-      },
-      content: {
-        value: '',
-        touched: false
-      },
-      folder: {
-        value: '',
-        touched: false
-      }
-    })
+    this.props.history.push('/');
   }
 
   validateNewNote() {
