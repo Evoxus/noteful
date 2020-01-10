@@ -60,7 +60,7 @@ class App extends Component {
 
   handleAddNote = note => {
     this.setState({
-      notes: [...this.state.folders, note]
+      notes: [...this.state.notes, note]
     })
   }
 

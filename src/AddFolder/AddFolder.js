@@ -27,7 +27,8 @@ export default class AddFolder extends Component {
     const inputName = this.state.name.value;
     e.preventDefault();
     fetch('http://localhost:9090/folders', {
-      method: 'POST', body: JSON.stringify({ name: inputName }),
+      method: 'POST', 
+      body: JSON.stringify({ name: inputName }),
       headers: {
         'content-type': 'application/json'
       }

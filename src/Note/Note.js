@@ -45,7 +45,7 @@ export default class Note extends Component {
         </h4>
         <p className='flexContainer'>
           <span className='Date'>
-            { format(parseISO(this.props.modified), 'do MMM yyyy') }
+            {this.props.modified && format(parseISO(this.props.modified), 'do MMM yyyy') }
           </span>
           <button className='DeleteNote' type='button' onClick={this.handleClickDelete}>DeleteNote</button>
         </p>
