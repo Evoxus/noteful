@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import Header from './Header/Header';
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends Component {
     constructor(props) {
       super(props);
       this.state = { hasError: false };
@@ -19,7 +20,12 @@ class ErrorBoundary extends React.Component {
     render() {
       if (this.state.hasError) {
         // You can render any custom fallback UI
-        return <h1>Something went wrong.</h1>;
+        return (
+          <main>
+            <Header />
+            <h1>Something went wrong.</h1>
+          </main>
+        );
       }
   
       return this.props.children; 
