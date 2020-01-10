@@ -6,18 +6,14 @@ import PropType from 'prop-types';
 import './Note.css';
 
 export default class Note extends Component {
-  constructor(props) {
-    super(props);
+  static defaultProps = {
+    onDeleteNote: () => {},
   }
-  // static defaultProps = {
-  //   onDeleteNote: () => {},
-  // }
 
   static contextType = NoteContext;
 
   handleClickDelete = e => {
     e.preventDefault()
-    console.log(this.props)
     const noteId = this.props.id
     fetch(`http://localhost:9090/notes/${noteId}`, {
       method: 'DELETE',
@@ -31,7 +27,6 @@ export default class Note extends Component {
         return res.json()
       })
       .then(() => {
-        console.log(this.props.onDeleteNote)
         this.props.onDeleteNote(noteId)
         this.context.deleteNote(noteId)
         // allow parent to perform extra behaviour

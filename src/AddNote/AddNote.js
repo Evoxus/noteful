@@ -51,13 +51,8 @@ export default class AddNote extends Component {
 
   getFolderId(folderName) {
     const folders = this.context.folders
-    let result;
-    for(let i = 0; i < folders.length; i++) {
-      if (folders[i].name === folderName) {
-        result = folders[i].id
-      }
-      return result
-    }
+    const result = folders.filter((folder) => folderName === folder.name)
+    return result[0].id
   }
 
   handleSubmit(e) {
@@ -71,7 +66,6 @@ export default class AddNote extends Component {
       modified: inputModified,
       folderId: inputFolderId
     }
-    console.log(newNote);
     e.preventDefault();
     fetch('http://localhost:9090/notes', {
       method: 'POST',
@@ -116,21 +110,21 @@ export default class AddNote extends Component {
         className="addNote">
         <div className="form-group">
           <label htmlFor="name">Note Name:</label>
-          <input type="text" className="registration__control"
+          <input type="text" className="registrationControl"
             name="name" id="name"
             onChange={e => this.updateNoteName(e.target.value)} />
           {this.validateNewNote() && this.state.name.touched && <p className='validationError'>{this.validateNewNote()}</p>}
           <label htmlFor="name">Folder Name:</label>
-          <input type="text" className="registration__control"
+          <input type="text" className="registrationControl"
             name="folderName" id="folderName"
             onChange={e => this.updateNoteFolder(e.target.value)} />
           <label htmlFor='content'>Note:</label>
-          <textarea type="text" className="registration__control"
+          <textarea type="text" className="registrationControl"
             name="content" id="content"
             onChange={e => this.updateNoteContent(e.target.value)} />
           <div>
             <button disbled={this.validateNewNote()}
-              type="submit" className="addNote__button">
+              type="submit" className="addNoteButton">
               Submit
             </button>
           </div>
