@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NoteContext from '../NoteContext';
+import './AddFolder.css';
 
 export default class AddFolder extends Component {
   constructor(props) {
@@ -29,20 +30,23 @@ handleSubmit(e){
         headers: {
           'content-type': 'application/json'
         },
-    });
-}
-
-
+    })
+    .then(res => res.json())
+    .then(data => { this.context.addFolder(data) })
+    }
 
 validateNewFolder(){
     const folderName = this.state.name.value;
+    const isFolderDuplicate = this.context.folders.filter(item => item.name === folderName).length > 0;
 
     if (folderName.length === 0) {
       return 'Name is required'
-    } else if (folderName.length < 6 && folderName.length > 25) {
-      return 'Name must have between 3 and 20 characters'
+    } else if (folderName.length < 2 || folderName.length > 25) {
+      return 'Name must have between 2 and 25 characters'
+    }else if (isFolderDuplicate){
+        return 'Folder name already exists'
     }
-  }
+}
   render() {
     return (
       <form onSubmit={e => this.handleSubmit(e)}
@@ -52,12 +56,15 @@ validateNewFolder(){
           <input type="text" className="registration__control"
             name="name" id="name"
             onChange={e => this.updateFolder(e.target.value)} />
-          <button disbled={this.validateNewFolder()}
-            type="submit" className="addFolder__button">
+             <button type="submit" className="addFolder__button"
+          disabled={this.validateNewFolder()}>
             Submit
           </button>
+            <div className='errorHandler'>{this.state.name.touched && <p>{this.validateNewFolder()}</p>}</div>
+         
         </div>
       </form>
-    );
+    );   
   }
+ 
 }

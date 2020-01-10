@@ -7,6 +7,8 @@ import NoteList from './NoteList/NoteList';
 import NoteDetail from './NoteDetail/NoteDetail';
 import NoteContext from './NoteContext';
 import AddFolder from './AddFolder/AddFolder';
+import AddNote from './AddNote/AddNote'
+import ErrorBoundary from '../ErrorBoundary';
 
 class App extends Component {
   constructor(props) {
@@ -39,6 +41,7 @@ class App extends Component {
       return Promise.all([foldersRes.json(), notesRes.json()]);
     }).then(([folders, notes]) => {
       this.setState({ folders, notes });
+      // console.log(folders);
     })
       .catch(error => {
         console.error({ error });
@@ -50,15 +53,16 @@ class App extends Component {
       notes: this.state.notes.filter(note => note.id !== noteId)
     });
   };
-handleAddFolder = (folder) =>{
-  this.setState({
-    folder:[...this.state.folders, folder]
-  })
-}
 
   handleAddFolder = folder => {
     this.setState({
       folders: [...this.state.folders, folder]
+    })
+  }
+
+  handleAddNote = note => {
+    this.setState({
+      notes: [...this.state.notes, note]
     })
   }
 
@@ -68,9 +72,12 @@ handleAddFolder = (folder) =>{
       notes: this.state.notes,
       deleteNote: this.handleDeleteNote,
       addFolder: this.handleAddFolder,
+      addNote: this.handleAddNote
     };
+    // console.log(this.state.folders);
     return (
       <div className="App">
+        <ErrorBoundary>
         <NoteContext.Provider value={ContextValue}>
           {['/', '/folder/:folderId','/AddFolder'].map((path, idx) => (
             <Route exact path={path} key={idx} component={Sidebar} />
@@ -82,8 +89,10 @@ handleAddFolder = (folder) =>{
             ))}
             <Route path="/note/:noteId" component={NoteDetail} />
             <Route path='/AddFolder' component={AddFolder}></Route>
+            <Route path='/AddNote' component={AddNote}></Route>
           </main>
         </NoteContext.Provider>
+        </ErrorBoundary>
       </div>
     );
   }

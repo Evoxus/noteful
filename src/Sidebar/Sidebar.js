@@ -13,7 +13,7 @@ export default class Sidebar extends Component {
       {(value) => {
         const folders = value.folders.map((folder, idx) => (
           <li key={idx}>
-            <Folder folder={folder} />
+              <Folder folder={folder} />
           </li>
         ))
         return (
