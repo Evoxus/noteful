@@ -1,11 +1,10 @@
 .Sidebar {
-  margin-top: 10%;
-  width: 30%;
-  height: 100vh;
+  background-color: #0b1b32;
+  color: #fff;
 }
 
 .Sidebar ul {
-  margin-top: 5px;
+  margin-top: 130px;
   list-style-type: none;
 }
 
@@ -14,5 +13,18 @@
   margin: 10px;
   padding: 10px;
   width: 100px;
-  border: 1px solid black;
+  border: 1px solid white;
+}
+
+.AddFolder {
+  color: white;
+  text-decoration: none;
+}
+
+.AddFolder:visited {
+  color: white;
+}
+
+.AddFolder:hover {
+  color: grey;
 }

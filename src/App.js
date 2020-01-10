@@ -74,24 +74,27 @@ class App extends Component {
       addFolder: this.handleAddFolder,
       addNote: this.handleAddNote
     };
-    // console.log(this.state.folders);
     return (
       <div className="App">
         <ErrorBoundary>
-        <NoteContext.Provider value={ContextValue}>
-          {['/', '/folder/:folderId','/AddFolder', '/AddNote'].map((path, idx) => (
-            <Route exact path={path} key={idx} component={Sidebar} />
-          ))}
-          <Header />
-          <main className='Main'>
-            {['/', '/folder/:folderId'].map((path, idx) => (
-              <Route exact path={path} key={idx} component={NoteList} />
-            ))}
-            <Route path="/note/:noteId" component={NoteDetail} />
-            <Route path='/AddFolder' component={AddFolder} />
-            <Route path='/AddNote' component={AddNote} />
-          </main>
-        </NoteContext.Provider>
+          <NoteContext.Provider value={ContextValue}>
+            <div className='Sidebar'>
+              {['/', '/folder/:folderId', '/AddFolder', '/AddNote'].map((path, idx) => (
+                <Route exact path={path} key={idx} component={Sidebar} />
+              ))}
+            </div>
+            <div className='Header'>
+              <Header />
+            </div>
+            <main className='Main'>
+              {['/', '/folder/:folderId'].map((path, idx) => (
+                <Route exact path={path} key={idx} component={NoteList} />
+              ))}
+              <Route path="/note/:noteId" component={NoteDetail} />
+              <Route path='/AddFolder' component={AddFolder} />
+              <Route path='/AddNote' component={AddNote} />
+            </main>
+          </NoteContext.Provider>
         </ErrorBoundary>
       </div>
     );

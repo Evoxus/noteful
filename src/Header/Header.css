@@ -1,3 +1,12 @@
 .Header {
-  
+  background-color: #0b1f3a;
+  color: #bdbdbd;
+}
+
+.Header a:visited {
+  color: #bdbdbd;
+}
+
+.Header a:hover {
+  color: #8d8d8d
 }

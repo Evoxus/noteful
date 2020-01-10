@@ -21,7 +21,7 @@ export default class Sidebar extends Component {
             <ul>
               {folders}
               <li key='AddFolder'>
-                <Link to='/AddFolder'>Add Folder</Link>
+                <Link className='AddFolder' to='/AddFolder'>Add Folder</Link>
               </li>
             </ul>
           </nav>
