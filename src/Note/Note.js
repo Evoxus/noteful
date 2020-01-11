@@ -40,12 +40,12 @@ export default class Note extends Component {
   render() {
     return (
       <div className='Note'>
-        <h4>
+        <h3>
           <Link className='NoteTitle' to={`/note/${this.props.id}`} >{this.props.name}</Link>
-        </h4>
+        </h3>
         <p className='flexContainer'>
           <span className='Date'>
-            {this.props.modified && format(parseISO(this.props.modified), 'do MMM yyyy') }
+            Modified {this.props.modified && format(parseISO(this.props.modified), 'do MMM yyyy') }
           </span>
           <button className='DeleteNote' type='button' onClick={this.handleClickDelete}>DeleteNote</button>
         </p>
