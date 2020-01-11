@@ -4,6 +4,7 @@
   margin-top: 0;
   padding: 7px;
 }
+
 .add-button{
   display: block;
   text-align: center;
@@ -23,4 +24,10 @@
   background-color: green;
   color: black;
   transition-duration: 100ms;
+}
+
+@media only screen and (min-width: 768px){
+  .NoteList ul{
+    width: 400px;
+  }
 }
