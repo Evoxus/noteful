@@ -1,4 +1,14 @@
 .NoteDetail {
   background-color: #102541;
   color: #fff;
+  padding: 0 20px;
+}
+
+.NoteContent {
+  margin-top: 10px;
+}
+
+.NoteContent p {
+  line-height: 1.2em;
+  margin: 5px;
 }

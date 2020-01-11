@@ -41,7 +41,6 @@ class App extends Component {
       return Promise.all([foldersRes.json(), notesRes.json()]);
     }).then(([folders, notes]) => {
       this.setState({ folders, notes });
-      // console.log(folders);
     })
       .catch(error => {
         console.error({ error });
@@ -79,7 +78,7 @@ class App extends Component {
         <ErrorBoundary>
           <NoteContext.Provider value={ContextValue}>
             <div className='Sidebar'>
-              {['/', '/folder/:folderId', '/AddFolder', '/AddNote'].map((path, idx) => (
+              {['/', '/folder/:folderId', '/AddFolder', '/AddNote', '/note/:noteId'].map((path, idx) => (
                 <Route exact path={path} key={idx} component={Sidebar} />
               ))}
             </div>
@@ -90,7 +89,7 @@ class App extends Component {
               {['/', '/folder/:folderId'].map((path, idx) => (
                 <Route exact path={path} key={idx} component={NoteList} />
               ))}
-              <Route path="/note/:noteId" component={NoteDetail} />
+              <Route path='/note/:noteId' component={NoteDetail} />
               <Route path='/AddFolder' component={AddFolder} />
               <Route path='/AddNote' component={AddNote} />
             </main>
