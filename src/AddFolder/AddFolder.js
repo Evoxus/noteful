@@ -59,11 +59,12 @@ export default class AddFolder extends Component {
           <input type="text" className="registrationControl"
             name="name" id="name"
             onChange={e => this.updateFolder(e.target.value)} />
+            <div className='errorHandler'>{this.state.name.touched && <p>{this.validateNewFolder()}</p>}</div>
           <button type="submit" className="addFolderButton"
             disabled={this.validateNewFolder()}>
             Add Folder
           </button>
-          <div className='errorHandler'>{this.state.name.touched && <p>{this.validateNewFolder()}</p>}</div>
+          
 
         </div>
       </form>
