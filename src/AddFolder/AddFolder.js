@@ -44,6 +44,7 @@ export default class AddFolder extends Component {
     })
       .then(res => res.json())
       .then(data => { this.context.addFolder(data) })
+    this.props.history.push('/');
   }
 
   validateNewFolder() {
