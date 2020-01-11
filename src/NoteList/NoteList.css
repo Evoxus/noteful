@@ -8,8 +8,11 @@
   background-color: rgb(24, 133, 24);
   cursor: pointer;
 }
-.addNoteButton {
+
+.add-button{
+  display: block;
   text-align: center;
+<<<<<<< HEAD
   border: 1px solid coral;
   width: 100px;
   height: 40px;
@@ -28,3 +31,21 @@
   height: 100%;
   width: 100%;
 }
+=======
+  margin: 10px 5px;
+  padding: 10px;
+  width: 300px;
+  border: 1px solid black;
+  text-decoration: none;
+  color: white;
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  border: 1px solid green;
+  background-color: green;
+  color: black;
+  transition-duration: 100ms;
+}
+>>>>>>> 1965e5ab882aeaebf6c81e41c426bfe0db0e3163

@@ -9,13 +9,13 @@ export default class AddFolder extends Component {
       name: {
         value: '',
         touched: false
-     }
-   }
-}
+      }
+    }
+  }
 
-static contextType = NoteContext;
+  static contextType = NoteContext;
 
-updateFolder(value){
+  updateFolder(value) {
     this.setState({
       name: {
         value: value,
@@ -24,21 +24,21 @@ updateFolder(value){
     });
   }
 
-handleSubmit(e){
+  handleSubmit(e) {
     const inputName = this.state.name.value;
     e.preventDefault();
     fetch('http://localhost:9090/folders', {
-      method: 'POST', 
+      method: 'POST',
       body: JSON.stringify({ name: inputName }),
       headers: {
         'content-type': 'application/json'
       }
     })
-    .then(res => res.json())
-    .then(data => { this.context.addFolder(data) })
-    }
+      .then(res => res.json())
+      .then(data => { this.context.addFolder(data) })
+  }
 
-validateNewFolder(){
+  validateNewFolder() {
     const folderName = this.state.name.value;
     const isFolderDuplicate = this.context.folders.filter(item => item.name === folderName).length > 0;
 
@@ -46,19 +46,20 @@ validateNewFolder(){
       return 'Name is required'
     } else if (folderName.length < 2 || folderName.length > 25) {
       return 'Name must have between 2 and 25 characters'
-    }else if (isFolderDuplicate){
-        return 'Folder name already exists'
+    } else if (isFolderDuplicate) {
+      return 'Folder name already exists'
     }
-}
+  }
   render() {
     return (
       <form onSubmit={e => this.handleSubmit(e)}
         className="addFolder">
         <div className="form-group">
           <label htmlFor="name">Folder Name:</label>
-          <input type="text" className="registration__control"
+          <input type="text" className="registrationControl"
             name="name" id="name"
             onChange={e => this.updateFolder(e.target.value)} />
+<<<<<<< HEAD
             <div className='errorHandler'>{this.state.name.touched && <p>{this.validateNewFolder()}</p>}</div>
              <button type="submit" className="addFolder__button"
              disabled={this.validateNewFolder()}>
@@ -66,9 +67,17 @@ validateNewFolder(){
           </button>
             
          
+=======
+          <button type="submit" className="addFolderButton"
+            disabled={this.validateNewFolder()}>
+            Submit
+          </button>
+          <div className='errorHandler'>{this.state.name.touched && <p>{this.validateNewFolder()}</p>}</div>
+
+>>>>>>> 1965e5ab882aeaebf6c81e41c426bfe0db0e3163
         </div>
       </form>
-    );   
+    );
   }
- 
+
 }
