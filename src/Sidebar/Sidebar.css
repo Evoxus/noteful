@@ -23,12 +23,8 @@
   color: white;
   text-decoration: none;
 }
-
-.AddFolder:visited {
-  color: white;
-}
 .AddFolder:hover {
-  color: grey;
+
 }
 .round {
   border-radius: 5%;

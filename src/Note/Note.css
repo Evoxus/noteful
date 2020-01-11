@@ -1,9 +1,8 @@
 .Note {
   border: 1px solid black;
   height: 70px;
-  width: 300px;
-  margin: 5px;
-  padding: 3px;
+  width: 300px; 
+  padding: 10px;
 }
 
 .Note h4 {
@@ -18,7 +17,6 @@
 .DeleteNote {
   border-radius: 5px;
   border: 1px solid black;
-  background-color: #0b1f3a;
   color: white;
   margin: 3px;
   cursor: pointer;
@@ -37,5 +35,5 @@
 
 .NoteTitle:hover {
   transition-duration: 100ms;
-  color: #646024;
+  color: black
 }

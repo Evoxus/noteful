@@ -2,5 +2,34 @@
     text-align: center;
 }
 .errorHandler {
-    color: red;
+    color:coral;
+    font-weight: bold;
+    font-size: 12px;   
+    text-align: left;
+}
+
+.addFolder{
+    height:150px;
+    align-items: center;
+    padding: 70px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(74, 116, 88);
+    width: 50%;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.addFolder__button{
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    padding: 3px;
+    font-weight: bold;
+}
+.addFolder__button:hover{
+    opacity: 0.7;
+    cursor: pointer;
+
 }

@@ -59,11 +59,12 @@ validateNewFolder(){
           <input type="text" className="registration__control"
             name="name" id="name"
             onChange={e => this.updateFolder(e.target.value)} />
+            <div className='errorHandler'>{this.state.name.touched && <p>{this.validateNewFolder()}</p>}</div>
              <button type="submit" className="addFolder__button"
              disabled={this.validateNewFolder()}>
-            Submit
+            Add Folder
           </button>
-            <div className='errorHandler'>{this.state.name.touched && <p>{this.validateNewFolder()}</p>}</div>
+            
          
         </div>
       </form>
