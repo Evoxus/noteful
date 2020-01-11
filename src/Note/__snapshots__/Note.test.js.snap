@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component snapshot test 1`] = `
+<div
+  className="Note"
+>
+  <h3>
+    <Link
+      className="NoteTitle"
+      to="/note/undefined"
+    />
+  </h3>
+  <p
+    className="flexContainer"
+  >
+    <span
+      className="Date"
+    >
+      Modified 
+    </span>
+    <button
+      className="DeleteNote"
+      onClick={[Function]}
+      type="button"
+    >
+      DeleteNote
+    </button>
+  </p>
+</div>
+`;

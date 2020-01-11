@@ -21,6 +21,16 @@ export default class AddNote extends Component {
     }
   }
 
+  static defaultProps = {
+    notes: [
+      {
+        id: 1,
+        name: 'Note',
+        modified: new Date(),
+        folderId: 2,
+    }]
+  }
+
   static contextType = NoteContext;
 
   updateNoteName(value) {

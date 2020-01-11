@@ -13,6 +13,14 @@ export default class AddFolder extends Component {
     }
   }
 
+  static defaultProps = {
+    folders: [
+      {
+        id: 1,
+        name: 'Folder'
+    }]
+  }
+
   static contextType = NoteContext;
 
   updateFolder(value) {
@@ -36,6 +44,7 @@ export default class AddFolder extends Component {
     })
       .then(res => res.json())
       .then(data => { this.context.addFolder(data) })
+    this.props.history.push('/');
   }
 
   validateNewFolder() {
@@ -55,20 +64,17 @@ export default class AddFolder extends Component {
       <form onSubmit={e => this.handleSubmit(e)}
         className="addFolder">
         <div className="form-group">
-          <label htmlFor="name">Folder Name:</label>
+          <label htmlFor="name">Folder Name</label>
           <input type="text" className="registrationControl"
             name="name" id="name"
             onChange={e => this.updateFolder(e.target.value)} />
             <div className='errorHandler'>{this.state.name.touched && <p>{this.validateNewFolder()}</p>}</div>
           <button type="submit" className="addFolderButton"
             disabled={this.validateNewFolder()}>
-            Submit
+            Add Folder
           </button>
-          
-
         </div>
       </form>
     );
   }
-
 }

@@ -9,6 +9,13 @@ export default function Folder(props){
   )
 }
 
+Folder.defaultProps = {
+  folder: {
+    id: 1,
+    name: 'Folder'
+  }
+}
+
 Folder.propTypes = {
   folder: PropTypes.object.isRequired
 }
