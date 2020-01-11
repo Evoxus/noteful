@@ -110,7 +110,7 @@ export default class AddNote extends Component {
             name="content" id="content"
             onChange={e => this.updateNoteContent(e.target.value)} />
           <div>
-            <button disbled={this.validateNewNote()}
+            <button disabled={this.validateNewNote()}
               type="submit" className="addNoteButton">
               Submit
             </button>
