@@ -1,9 +1,7 @@
 .Note {
   border: 1px solid black;
   height: 80px;
-  width: 95%;
-  max-width: 300px;
-  margin: 5px;
+  width: 300px;
   padding: 3px;
 }
 
