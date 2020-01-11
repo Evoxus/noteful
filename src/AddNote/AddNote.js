@@ -84,10 +84,13 @@ export default class AddNote extends Component {
 
   validateNewNote() {
     const noteName = this.state.name.value;
+    const isNoteDuplicate = this.context.notes.filter(item => item.name === noteName).length > 0;
     if (noteName.length === 0) {
       return 'Name is required'
-    } else if (noteName.length < 6 && noteName.length > 25) {
-      return 'Name must have between 3 and 20 characters'
+    } else if (noteName.length < 3 || noteName.length > 25) {
+      return 'Name must have between 3 and 25 characters'
+    }else if (isNoteDuplicate){
+      return 'Note name already exists';
     }
   }
 
@@ -100,7 +103,7 @@ export default class AddNote extends Component {
           <input type="text" className="registrationControl"
             name="name" id="name"
             onChange={e => this.updateNoteName(e.target.value)} />
-          {this.validateNewNote() && this.state.name.touched && <p className='validationError'>{this.validateNewNote()}</p>}
+          {this.state.name.touched && <p className='validationError'>{this.validateNewNote()}</p>}
           <label htmlFor="name">Folder Name:</label>
           <input type="text" className="registrationControl"
             name="folderName" id="folderName"
