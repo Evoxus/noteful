@@ -11,8 +11,8 @@ describe('App component', () => {
     ReactDOM.render(<BrowserRouter> <App /> </BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   })
-  it('snapshot test', () => {
-    const wrapper = shallow(<App />)
-    expect(toJson(wrapper)).toMatchSnapshot()
-  })
+  // it('snapshot test', () => {
+  //   const wrapper = shallow(<App />)
+  //   expect(toJson(wrapper)).toMatchSnapshot()
+  // })
 })

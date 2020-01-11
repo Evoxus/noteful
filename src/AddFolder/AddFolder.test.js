@@ -10,8 +10,8 @@ describe('App component', () => {
     ReactDOM.render(<AddFolder />, div);
     ReactDOM.unmountComponentAtNode(div);
   })
-  it('snapshot test', () => {
-    const wrapper = shallow(<AddFolder />)
-    expect(toJson(wrapper)).toMatchSnapshot()
-  })
+  // it('snapshot test', () => {
+  //   const wrapper = shallow(<AddFolder />)
+  //   expect(toJson(wrapper)).toMatchSnapshot()
+  // })
 })
