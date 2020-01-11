@@ -1,9 +1,10 @@
 .Folder {
   display: block;
   text-align: center;
-  margin: 10px;
+  margin: 10px 2px;
   padding: 10px;
-  width: 100px;
+  width: 95%;
+  max-width: 100px;
   border: 1px solid white;
   text-decoration: none;
   color: white;

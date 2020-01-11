@@ -1,31 +1,35 @@
 .Note {
   border: 1px solid black;
-  height: 70px;
-  width: 300px; 
-  padding: 10px;
+  height: 80px;
+  width: 95%;
+  max-width: 300px;
+  margin: 5px;
+  padding: 3px;
 }
 
-.Note h4 {
-  margin-top: 5px;
-  margin-bottom: 18px;
+.Note h3 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
 }
 
 .flexContainer {
   display: flex;
   justify-content: space-between;
+  font-size: 0.85em;
 }
 
 .DeleteNote {
   border-radius: 5px;
   border: 1px solid black;
+  background-color: #0b1f3a;
   color: white;
-  padding: 3px;
-  margin-bottom: 2px;
+  height: 25px;
+  width: 70px;
   cursor: pointer;
 }
 
 .DeleteNote:hover {
-  background-color: red;
+  background-color: #970000;
   color: white;
 }
 
@@ -37,5 +41,5 @@
 
 .NoteTitle:hover {
   transition-duration: 100ms;
-  color: black
+  color: #646024;
 }
