@@ -32,7 +32,7 @@ export default class NoteList extends Component {
         <ul>
           {notes}
           <li key='addNote' className='addNoteButton'>
-            <Link to='/AddNote'>Add Note</Link>
+            <Link className='add-button' to='/AddNote'>Add Note</Link>
           </li>
         </ul>
       </section>

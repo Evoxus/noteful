@@ -1,18 +1,19 @@
-<<<<<<< HEAD
-.NoteList ul  {
-=======
 .NoteList ul{
   list-style-type: none;
->>>>>>> cd8ee5e5e490cd3bdad95e1922eec8881f22c0df
   padding-left: 0;
   margin-top: 0;
 }
 
 .addNoteButton {
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid darksalmon;
   width: 300px;
   margin: 5px;
   padding: 10px 0;
 }
 
+.add-button{
+  text-decoration: none;
+  list-style-type: none;
+  color: salmon;
+}
