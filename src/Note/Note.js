@@ -41,7 +41,7 @@ export default class Note extends Component {
     return (
       <div className='Note'>
         <h4>
-          <Link to={`/note/${this.props.id}`} >{this.props.name}</Link>
+          <Link className='NoteTitle' to={`/note/${this.props.id}`} >{this.props.name}</Link>
         </h4>
         <p className='flexContainer'>
           <span className='Date'>
