@@ -10,7 +10,7 @@ describe('App component', () => {
     ReactDOM.render(<NoteDetail />, div);
     ReactDOM.unmountComponentAtNode(div);
   })
-  it('renders empty given no tabs', () => {
+  it('snapshot test', () => {
     const wrapper = shallow(<NoteDetail />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })

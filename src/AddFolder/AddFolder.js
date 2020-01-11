@@ -13,6 +13,14 @@ export default class AddFolder extends Component {
     }
   }
 
+  static defaultProps = {
+    folders: [
+      {
+        id: 1,
+        name: 'Folder'
+    }]
+  }
+
   static contextType = NoteContext;
 
   updateFolder(value) {
@@ -64,11 +72,8 @@ export default class AddFolder extends Component {
             disabled={this.validateNewFolder()}>
             Add Folder
           </button>
-          
-
         </div>
       </form>
     );
   }
-
 }

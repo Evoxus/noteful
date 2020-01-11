@@ -54,6 +54,15 @@ export default class Note extends Component {
   }
 }
 
+Note.defaultProps = {
+  note: {
+    id: 1,
+    name: 'Note',
+    modified: new Date(),
+    handleClickDelete: () => {},
+  }
+}
+
 Note.propType = {
   name: PropType.string.isRequired,
   modified: PropType.string.isRequired,

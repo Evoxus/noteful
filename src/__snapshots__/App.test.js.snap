@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component snapshot test 1`] = `
+<div
+  className="App"
+>
+  <ErrorBoundary>
+    <ContextProvider
+      value={
+        Object {
+          "addFolder": [Function],
+          "addNote": [Function],
+          "deleteNote": [Function],
+          "folders": Array [],
+          "notes": Array [],
+        }
+      }
+    >
+      <div
+        className="Sidebar"
+      >
+        <Route
+          component={[Function]}
+          exact={true}
+          key="0"
+          path="/"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          key="1"
+          path="/folder/:folderId"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          key="2"
+          path="/AddFolder"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          key="3"
+          path="/AddNote"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          key="4"
+          path="/note/:noteId"
+        />
+      </div>
+      <div
+        className="Header"
+      >
+        <Header />
+      </div>
+      <main
+        className="Main"
+      >
+        <Route
+          component={[Function]}
+          exact={true}
+          key="0"
+          path="/"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          key="1"
+          path="/folder/:folderId"
+        />
+        <Route
+          component={[Function]}
+          path="/note/:noteId"
+        />
+        <Route
+          component={[Function]}
+          path="/AddFolder"
+        />
+        <Route
+          component={[Function]}
+          path="/AddNote"
+        />
+      </main>
+    </ContextProvider>
+  </ErrorBoundary>
+</div>
+`;

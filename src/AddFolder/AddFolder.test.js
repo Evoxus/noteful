@@ -10,7 +10,7 @@ describe('App component', () => {
     ReactDOM.render(<AddFolder />, div);
     ReactDOM.unmountComponentAtNode(div);
   })
-  it('renders empty given no tabs', () => {
+  it('snapshot test', () => {
     const wrapper = shallow(<AddFolder />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
