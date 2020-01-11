@@ -1,7 +1,7 @@
 .Folder {
   display: block;
   text-align: center;
-  margin: 10px 2px;
+  margin: 7px 2px;
   padding: 10px;
   width: 95%;
   max-width: 100px;
@@ -9,7 +9,9 @@
   text-decoration: none;
   color: white;
 }
-
-.active {
-  color: #A76661;
+.Folder:hover {
+  background-color:  rgb(25, 116, 108);
+}
+.Folder.active {
+  background-color: rgb(25, 116, 108);
 }

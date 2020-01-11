@@ -1,8 +1,15 @@
 .Note {
-  border: 1px solid black;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background-color:  rgb(25, 116, 108);
   height: 80px;
   width: 300px;
   padding: 3px;
+  margin: 5px 0;
+}
+.Note:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 .Note h3 {
@@ -22,7 +29,7 @@
   background-color: #0b1f3a;
   color: white;
   height: 25px;
-  width: 70px;
+  width: 80px;
   cursor: pointer;
 }
 
