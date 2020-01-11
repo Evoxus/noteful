@@ -99,23 +99,23 @@ export default class AddNote extends Component {
       <form onSubmit={e => this.handleSubmit(e)}
         className="addNote">
         <div className="form-group">
-          <label htmlFor="name">Note Name:</label>
+          <label htmlFor="name">Note Name</label>
           <input type="text" className="registrationControl"
             name="name" id="name"
             onChange={e => this.updateNoteName(e.target.value)} />
           {this.state.name.touched && <p className='validationError'>{this.validateNewNote()}</p>}
-          <label htmlFor="name">Folder Name:</label>
+          <label htmlFor="name">Folder Name</label>
           <input type="text" className="registrationControl"
             name="folderName" id="folderName"
             onChange={e => this.updateNoteFolder(e.target.value)} />
-          <label htmlFor='content'>Note:</label>
+          <label htmlFor='content'>Note</label>
           <textarea type="text" className="registrationControl"
             name="content" id="content"
             onChange={e => this.updateNoteContent(e.target.value)} />
           <div>
             <button disabled={this.validateNewNote()}
-              type="submit" className="addNoteButton">
-              Submit
+              type="submit" className="addNoteSubmit">
+              Add Note
             </button>
           </div>
         </div>

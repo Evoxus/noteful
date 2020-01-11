@@ -2,11 +2,36 @@
   list-style-type: none;
   padding-left: 0;
   margin-top: 0;
+  padding: 10px;
+}
+.NoteList li:hover {
+  background-color: rgb(24, 133, 24);
+  cursor: pointer;
 }
 
 .add-button{
   display: block;
   text-align: center;
+<<<<<<< HEAD
+  border: 1px solid coral;
+  width: 100px;
+  height: 40px;
+  margin: 5px;
+  padding: 10px 0;
+  cursor: pointer;
+  outline: none;
+}
+.NoteList >ul>li>a {
+  width: 100%;
+}
+.add-button{
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+=======
   margin: 10px 5px;
   padding: 10px;
   width: 95%;
@@ -24,3 +49,4 @@
   color: black;
   transition-duration: 100ms;
 }
+>>>>>>> 1965e5ab882aeaebf6c81e41c426bfe0db0e3163
