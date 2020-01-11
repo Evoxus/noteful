@@ -8,6 +8,7 @@
 
 .Note h4 {
   margin-top: 5px;
+  margin-bottom: 18px;
 }
 
 .flexContainer {
@@ -20,7 +21,8 @@
   border: 1px solid black;
   background-color: #0b1f3a;
   color: white;
-  margin: 3px;
+  padding: 3px;
+  margin-bottom: 2px;
   cursor: pointer;
 }
 
