@@ -2,6 +2,9 @@
   background-color: #0b1b32;
   color: #fff;
 }
+.Sidebar  li:hover {
+  opacity: 0.6;
+}
 
 .Sidebar ul {
   margin-top: 130px;
@@ -24,7 +27,9 @@
 .AddFolder:visited {
   color: white;
 }
-
 .AddFolder:hover {
   color: grey;
+}
+.round {
+  border-radius: 5%;
 }

@@ -20,7 +20,7 @@ export default class Sidebar extends Component {
           <nav className='Sidebar'>
             <ul>
               {folders}
-              <li key='AddFolder'>
+              <li className='round' key='AddFolder'>
                 <Link className='AddFolder' to='/AddFolder'>Add Folder</Link>
               </li>
             </ul>

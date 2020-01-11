@@ -1,9 +1,4 @@
-.NoteList {
-  
-}
-
-.NoteList ul{
-  list-style-type: none;
+.NoteList ul  {
   padding-left: 0;
   margin-top: 0;
 }
@@ -15,3 +10,4 @@
   margin: 5px;
   padding: 10px 0;
 }
+
