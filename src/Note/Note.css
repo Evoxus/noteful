@@ -16,7 +16,25 @@
 }
 
 .DeleteNote {
+  border-radius: 5px;
   border: 1px solid black;
-  background-color: none;
+  background-color: #0b1f3a;
+  color: white;
   margin: 3px;
+}
+
+.DeleteNote:hover {
+  background-color: red;
+  color: white;
+}
+
+.NoteTitle {
+  color: #bdbdbd;
+  text-decoration: none;
+  transition-duration: 100ms;
+}
+
+.NoteTitle:hover {
+  transition-duration: 100ms;
+  color: #646024;
 }

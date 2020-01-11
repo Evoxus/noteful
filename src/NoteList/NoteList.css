@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 .NoteList ul  {
+=======
+.NoteList ul{
+  list-style-type: none;
+>>>>>>> cd8ee5e5e490cd3bdad95e1922eec8881f22c0df
   padding-left: 0;
   margin-top: 0;
 }
