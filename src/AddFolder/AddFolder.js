@@ -60,7 +60,7 @@ validateNewFolder(){
             name="name" id="name"
             onChange={e => this.updateFolder(e.target.value)} />
              <button type="submit" className="addFolder__button"
-          disabled={this.validateNewFolder()}>
+             disabled={this.validateNewFolder()}>
             Submit
           </button>
             <div className='errorHandler'>{this.state.name.touched && <p>{this.validateNewFolder()}</p>}</div>

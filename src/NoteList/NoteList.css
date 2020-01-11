@@ -3,17 +3,25 @@
   padding-left: 0;
   margin-top: 0;
 }
-
 .addNoteButton {
   text-align: center;
-  border: 1px solid darksalmon;
-  width: 300px;
+  border: 1px solid green;
+  width: 100px;
+  height: 40px;
   margin: 5px;
   padding: 10px 0;
+  cursor: pointer;
 }
-
+.addNoteButton:hover{
+  background-color: green;
+}
+.NoteList >ul>li>a {
+  width: 100%;
+}
 .add-button{
   text-decoration: none;
   list-style-type: none;
-  color: salmon;
+  color: lightgreen;
+  height: 100%;
+  width: 100%;
 }

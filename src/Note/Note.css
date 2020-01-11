@@ -21,6 +21,7 @@
   background-color: #0b1f3a;
   color: white;
   margin: 3px;
+  cursor: pointer;
 }
 
 .DeleteNote:hover {
