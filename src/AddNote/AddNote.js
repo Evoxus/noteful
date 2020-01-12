@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NoteContext from '../NoteContext';
 import './AddNote.css';
+import { findByPlaceholderText } from '@testing-library/react';
 
 export default class AddNote extends Component {
   constructor(props) {
@@ -103,7 +104,6 @@ export default class AddNote extends Component {
       return 'Note name already exists';
     }
   }
-
   render() {
     return (
       <form onSubmit={e => this.handleSubmit(e)}
@@ -115,12 +115,15 @@ export default class AddNote extends Component {
             onChange={e => this.updateNoteName(e.target.value)} />
           {this.state.name.touched && <p className='validationError'>{this.validateNewNote()}</p>}
           <label htmlFor="name">Folder Name</label>
+          
+          
           <input type="text" className="registrationControl"
             name="folderName" id="folderName"
             onChange={e => this.updateNoteFolder(e.target.value)} />
+    
           <label htmlFor='content'>Note</label>
           <textarea type="text" className="registrationControl"
-            name="content" id="content"
+            name="content" id="content" placeholder="Enter note...."
             onChange={e => this.updateNoteContent(e.target.value)} />
           <div>
             <button disabled={this.validateNewNote()}
