@@ -14,7 +14,7 @@
     padding: 70px;
     display: flex;
     justify-content: center;
-    background-color: rgb(74, 116, 88);
+    background-color: rgb(25, 116, 108);;
     width: 70%;
     margin: auto;
     border-radius: 20px;
@@ -22,13 +22,15 @@
 
 .addFolderButton{
     margin: 5px;
-    border: 1px solid black;
+    border: 1px solid #fff;
     border-radius: 5px;
     outline: none;
-    padding: 3px;
+    padding: 5px;
+    color: black;
     font-weight: bold;
+    background-color:  rgb(236, 195, 118);
 }
-.addFolder__button:hover{
+.addFolderButton:hover{
     opacity: 0.7;
     cursor: pointer;
 

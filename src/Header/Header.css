@@ -1,9 +1,11 @@
 .Header {
-  background-color: #0b1f3a;
+  background-color:rgb(236, 195, 118);
   color: #ebebeb;
   padding-bottom: 20px;
 }
-
+.Header a {
+  color: black;
+}
 .Header a:visited {
   color: #ebebeb;
 }
