@@ -19,15 +19,17 @@ class App extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     Promise.all([
-      fetch('http://localhost:9090/folders', {
+      fetch('https://noteful-json-server-42.herokuapp.com/folders', {
+        mode: 'no-cors',
         method: 'GET',
         headers: {
           'content-type': 'application/json'
         },
       }),
-      fetch('http://localhost:9090/notes', {
+      fetch('https://noteful-json-server-42.herokuapp.com/notes', {
+        mode: 'no-cors',
         method: 'GET',
         headers: {
           'content-type': 'application/json'

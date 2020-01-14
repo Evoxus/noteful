@@ -35,7 +35,7 @@ export default class AddFolder extends Component {
   handleSubmit(e) {
     const inputName = this.state.name.value;
     e.preventDefault();
-    fetch('http://localhost:9090/folders', {
+    fetch('https://noteful-json-server-42.herokuapp.com/folders', {
       method: 'POST',
       body: JSON.stringify({ name: inputName }),
       headers: {

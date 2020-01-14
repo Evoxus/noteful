@@ -77,7 +77,7 @@ export default class AddNote extends Component {
       folderId: inputFolderId
     }
     e.preventDefault();
-    fetch('http://localhost:9090/notes', {
+    fetch('https://noteful-json-server-42.herokuapp.com/notes', {
       method: 'POST',
       body: JSON.stringify(newNote),
       headers: {
