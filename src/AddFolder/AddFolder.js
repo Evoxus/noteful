@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NoteContext from '../NoteContext';
 import './AddFolder.css';
+import { BASE_API } from '../config';
 
 export default class AddFolder extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class AddFolder extends Component {
   handleSubmit(e) {
     const inputName = this.state.name.value;
     e.preventDefault();
-    fetch('https://noteful-json-server-42.herokuapp.com/folders', {
+    fetch(`${BASE_API}/folders`, {
       method: 'POST',
       body: JSON.stringify({ name: inputName }),
       headers: {

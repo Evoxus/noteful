@@ -9,6 +9,7 @@ import NoteContext from './NoteContext';
 import AddFolder from './AddFolder/AddFolder';
 import AddNote from './AddNote/AddNote';
 import ErrorBoundary from './ErrorBoundary';
+import { BASE_API } from './config';
 
 class App extends Component {
   constructor(props) {
@@ -21,14 +22,14 @@ class App extends Component {
 
   componentDidMount() {
     Promise.all([
-      fetch('https://noteful-json-server-42.herokuapp.com/folders', {
+      fetch(`${BASE_API}/folders`, {
         mode: 'no-cors',
         method: 'GET',
         headers: {
           'content-type': 'application/json'
         },
       }),
-      fetch('https://noteful-json-server-42.herokuapp.com/notes', {
+      fetch(`${BASE_API}/notes`, {
         mode: 'no-cors',
         method: 'GET',
         headers: {

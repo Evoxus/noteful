@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NoteContext from '../NoteContext';
 import './AddNote.css';
-import { findByPlaceholderText } from '@testing-library/react';
+import { BASE_API } from '../config';
 
 export default class AddNote extends Component {
   constructor(props) {
@@ -78,7 +78,7 @@ export default class AddNote extends Component {
       folderId: inputFolderId
     }
     e.preventDefault();
-    fetch('https://noteful-json-server-42.herokuapp.com/notes', {
+    fetch(`${BASE_API}/notes`, {
       method: 'POST',
       body: JSON.stringify(newNote),
       headers: {
