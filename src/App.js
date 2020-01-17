@@ -23,14 +23,12 @@ class App extends Component {
   componentDidMount() {
     Promise.all([
       fetch(`${BASE_API}/folders`, {
-        mode: 'no-cors',
         method: 'GET',
         headers: {
           'content-type': 'application/json'
         },
       }),
       fetch(`${BASE_API}/notes`, {
-        mode: 'no-cors',
         method: 'GET',
         headers: {
           'content-type': 'application/json'
