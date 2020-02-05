@@ -7,6 +7,6 @@
       { "src": "/.*", "dest": "/index.html" }
   ],
   "env": {
-    "REACT_APP_BASE_API": "https://noteful-json-server.herokuapp.com"
+    "REACT_APP_BASE_API": "@https://noteful-json-server.herokuapp.com"
   }
 }
