@@ -4,6 +4,7 @@ import { format, parseISO } from 'date-fns';
 import NoteContext from '../NoteContext';
 import PropType from 'prop-types';
 import './Note.css';
+import { BASE_API } from '../config';
 
 export default class Note extends Component {
   static defaultProps = {
@@ -15,7 +16,7 @@ export default class Note extends Component {
   handleClickDelete = e => {
     e.preventDefault()
     const noteId = this.props.id
-    fetch(`http://localhost:9090/notes/${noteId}`, {
+    fetch(`${BASE_API}/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
