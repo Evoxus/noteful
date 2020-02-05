@@ -1,6 +1,7 @@
 {
   "version": 1,
   "name": "noteful",
+  "alias": "michaelhp42-noteful",
   "routes": [
       { "handle": "filesystem" },
       { "src": "/.*", "dest": "/index.html" }
