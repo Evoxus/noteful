@@ -2,7 +2,7 @@
     text-align: center;
 }
 .errorHandler {
-    color:coral;
+    color: #CFB29A;
     font-weight: bold;
     font-size: 12px;   
     text-align: left;
@@ -14,10 +14,10 @@
     padding: 70px;
     display: flex;
     justify-content: center;
-    background-color: rgb(25, 116, 108);;
+    background-color: #2C4C4C;
     width: 70%;
     margin: auto;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 .addFolderButton{
@@ -28,7 +28,7 @@
     padding: 5px;
     color: black;
     font-weight: bold;
-    background-color:  rgb(236, 195, 118);
+    background-color: #7F6249;
 }
 .addFolderButton:hover{
     opacity: 0.7;

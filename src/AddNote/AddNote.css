@@ -3,7 +3,7 @@ label {
 }
 
 .validationError {
-  color: coral;
+  color: #CFB29A;
   font-weight: bold;
   font-size: 0.75em;
 }
@@ -12,10 +12,10 @@ label {
   padding: 70px;
   display: flex;
   justify-content: center;
-  background-color: rgb(25, 116, 108);
+  background-color: #2C4C4C;
   width: 70%;
   margin: auto;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 input {
   padding: 3px;
@@ -51,7 +51,7 @@ label {
   font-weight: bold;
   font-weight: bold;
   border: 1px solid #fff;
-  background-color: rgb(236, 195, 118);
+  background-color: #7F6249;
 }
 .addNoteSubmit:hover {
   opacity: 0.7;

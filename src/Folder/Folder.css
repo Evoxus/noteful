@@ -10,8 +10,8 @@
   color: white;
 }
 .Folder:hover {
-  background-color:  rgb(25, 116, 108);
+  background-color: #2C4C4C;
 }
 .Folder.active {
-  background-color: rgb(25, 116, 108);
+  background-color: #406565;
 }

@@ -1,15 +1,15 @@
 .Header {
-  background-color: #121F36;
-  color: #ebebeb;
+  background-color: #7F6249;
+  color: #CFB29A;
   padding-bottom: 20px;
 }
 .Header a {
   color: black;
 }
 .Header a:visited {
-  color: #ebebeb;
+  color: #CFB29A;
 }
 
 .Header a:hover {
-  color: #8d8d8d
+  color: #513015;
 }
