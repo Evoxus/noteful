@@ -38,7 +38,7 @@ export default class AddFolder extends Component {
     e.preventDefault();
     fetch(`${BASE_API}/folders`, {
       method: 'POST',
-      body: JSON.stringify({ name: inputName }),
+      body: JSON.stringify({ folder_name: inputName }),
       headers: {
         'content-type': 'application/json'
       }

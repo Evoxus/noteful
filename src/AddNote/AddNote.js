@@ -72,10 +72,10 @@ export default class AddNote extends Component {
     const inputFolderId = this.getFolderId(this.state.folder.value);
     const inputModified = new Date();
     const newNote = {
-      name: inputName,
+      note_name: inputName,
       content: inputContent,
       modified: inputModified,
-      folderId: inputFolderId
+      folder_id: inputFolderId
     }
     e.preventDefault();
     fetch(`${BASE_API}/notes`, {
