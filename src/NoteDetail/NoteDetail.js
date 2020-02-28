@@ -22,7 +22,7 @@ export default class NoteDetail extends Component {
           <section className='NoteDetail'>
             <Note
               id={note.id}
-              name={note.name}
+              name={note.note_name}
               modified={note.modified}
               onDeleteNote={this.handleDeleteNote}
             />

@@ -5,7 +5,7 @@ import './Folder.css';
 
 export default function Folder(props){
   return(
-    <NavLink className='Folder' to={`/folder/${props.folder.id}`}>{props.folder.name}</NavLink>
+    <NavLink className='Folder' to={`/folder/${props.folder.id}`}>{props.folder.folder_name}</NavLink>
   )
 }
 

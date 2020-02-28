@@ -58,7 +58,7 @@ export default class Note extends Component {
 Note.defaultProps = {
   note: {
     id: 1,
-    name: 'Note',
+    note_name: 'Note',
     modified: new Date(),
     handleClickDelete: () => {},
   }

@@ -18,11 +18,11 @@ export default class NoteList extends Component {
   }
 
   render() {
-    const { folderId } = this.props.match.params;
-    const notes = getNotesForFolder(this.context.notes, folderId).map(note =>
+    const { folder_id } = this.props.match.params;
+    const notes = getNotesForFolder(this.context.notes, folder_id).map(note =>
       <li key={note.id}>
         <Note modified={note.modified}
-          name={note.name} id={note.id}
+          name={note.note_name} id={note.id}
           onDeleteNote={this.handleDeleteNote}
         />
       </li>
