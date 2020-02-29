@@ -15,3 +15,8 @@
 .Folder.active {
   background-color: #406565;
 }
+
+.noteCount {
+  font-size: x-small;
+  color: #0C3030;
+}

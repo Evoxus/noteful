@@ -1,11 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { countNotesForFolder } from '../helperFunctions';
 import './Folder.css';
 
 export default function Folder(props){
   return(
-    <NavLink className='Folder' to={`/folder/${props.folder.id}`}>{props.folder.folder_name}</NavLink>
+    <NavLink className='Folder' to={`/folder/${props.folder.id}`}>
+      {props.folder.folder_name}
+      <span className='noteCount'>  {countNotesForFolder(props.notes, props.folder.id)}</span>
+    </NavLink>
   )
 }
 
