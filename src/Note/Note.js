@@ -8,7 +8,7 @@ import { BASE_API } from '../config';
 
 export default class Note extends Component {
   static defaultProps = {
-    onDeleteNote: () => {},
+    onDeleteNote: () => { },
   }
 
   static contextType = NoteContext;
@@ -25,17 +25,13 @@ export default class Note extends Component {
       .then(res => {
         if (!res.ok)
           return res.json().then(e => Promise.reject(e))
-        return res.json()
-      })
-      .then(() => {
-        this.props.onDeleteNote(noteId)
-        this.context.deleteNote(noteId)
-        // allow parent to perform extra behaviour
-        
       })
       .catch(error => {
         console.error({ error })
       })
+    this.props.onDeleteNote(noteId)
+    this.context.deleteNote(noteId)
+    // allow parent to perform extra behaviour
   }
 
   render() {
@@ -46,7 +42,7 @@ export default class Note extends Component {
         </h3>
         <p className='flexContainer'>
           <span className='Date'>
-            Modified {this.props.modified && format(parseISO(this.props.modified), 'do MMM yyyy') }
+            Modified {this.props.modified && format(parseISO(this.props.modified), 'do MMM yyyy')}
           </span>
           <button className='DeleteNote' type='button' onClick={this.handleClickDelete}>DeleteNote</button>
         </p>
@@ -60,7 +56,7 @@ Note.defaultProps = {
     id: 1,
     note_name: 'Note',
     modified: new Date(),
-    handleClickDelete: () => {},
+    handleClickDelete: () => { },
   }
 }
 
