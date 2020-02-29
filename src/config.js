@@ -1,1 +1,1 @@
-export const BASE_API = 'https://rocky-garden-91237.herokuapp.com/'
+export const BASE_API = 'https://rocky-garden-91237.herokuapp.com'
