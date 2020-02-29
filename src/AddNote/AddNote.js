@@ -62,11 +62,12 @@ export default class AddNote extends Component {
 
   getFolderId(folderName) {
     const folders = this.context.folders
-    const result = folders.filter((folder) => folderName === folder.name)
+    const result = folders.filter((folder) => folderName === folder.folder_name)
     return result[0].id
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     const inputName = this.state.name.value;
     const inputContent = this.state.content.value;
     const inputFolderId = this.getFolderId(this.state.folder.value);
@@ -77,7 +78,6 @@ export default class AddNote extends Component {
       modified: inputModified,
       folder_id: inputFolderId
     }
-    e.preventDefault();
     fetch(`${BASE_API}/notes`, {
       method: 'POST',
       body: JSON.stringify(newNote),
