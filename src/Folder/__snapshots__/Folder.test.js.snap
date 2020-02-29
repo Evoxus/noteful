@@ -5,6 +5,11 @@ exports[`App component snapshot test 1`] = `
   className="Folder"
   to="/folder/1"
 >
-  Folder
+  <span
+    className="noteCount"
+  >
+      
+    0
+  </span>
 </NavLink>
 `;
