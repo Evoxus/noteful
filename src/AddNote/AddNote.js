@@ -55,7 +55,7 @@ export default class AddNote extends Component {
     this.setState({
       folder: {
         value: value,
-        touched: false
+        touched: true
       }
     })
   }
@@ -103,8 +103,20 @@ export default class AddNote extends Component {
     }else if (isNoteDuplicate){
       return 'Note name already exists';
     }
+    return false
   }
+
+  validateFolderSelection() {
+    if (this.state.folder.value.length === 0) {
+      return 'Please select a folder'
+    }
+    return false
+  }
+
   render() {
+    const folderOptions = this.context.folders.map(folder => {
+      return <option key={folder.id} value={folder.folder_name}>{folder.folder_name}</option>
+    })
     return (
       <form onSubmit={e => this.handleSubmit(e)}
         className="addNote">
@@ -115,18 +127,19 @@ export default class AddNote extends Component {
             onChange={e => this.updateNoteName(e.target.value)} />
           {this.state.name.touched && <p className='validationError'>{this.validateNewNote()}</p>}
           <label htmlFor="name">Folder Name</label>
-          
-          
-          <input type="text" className="registrationControl"
-            name="folderName" id="folderName"
-            onChange={e => this.updateNoteFolder(e.target.value)} />
-    
+          <select className="registrationControl"
+            name="folderName" id="folderNameSelect"
+            onChange={e => this.updateNoteFolder(e.target.value)}>
+              <option value=''>-- Please select a folder --</option>
+              {folderOptions}
+          </select>
+          {this.state.folder.touched && <p className='validationError'>{this.validateFolderSelection()}</p>}
           <label htmlFor='content'>Note</label>
           <textarea type="text" className="registrationControl"
             name="content" id="content" placeholder="Enter note...."
             onChange={e => this.updateNoteContent(e.target.value)} />
           <div>
-            <button disabled={this.validateNewNote()}
+            <button disabled={this.validateNewNote() || this.validateFolderSelection()}
               type="submit" className="addNoteSubmit">
               Add Note
             </button>
